@@ -105,7 +105,7 @@ class Day extends Component {
     if (this.props.index === 6) {
       containerStyle.push(this.style.noRightBorder);
     }
-    if (this.props.state !== 'disabled' && (this.props.index === 0 || this.props.index === 6)) {
+    if (this.props.state !== 'disabled' && (this.props.index === 0 || this.props.index === 6) && !this.props.theme.primaryColor) {
       textStyle.push(this.style.specialText);
     }
     //End PET Style
