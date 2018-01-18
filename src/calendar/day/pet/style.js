@@ -1,7 +1,11 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import * as defaultStyle from '../../../style';
 
 const STYLESHEET_ID = 'stylesheet.day.basic';
+const { width } = Dimensions.get("window");
+const calendarWidth = width - 18;
+const dayWidth = (calendarWidth - 5 * 2) / 7;
+const fontSizeTypeDayText = dayWidth > 48 ? 8 : 6;
 
 export default function styleConstructor(theme={}) {
   const appStyle = {...defaultStyle, ...theme};
@@ -112,7 +116,7 @@ export default function styleConstructor(theme={}) {
       alignItems: 'flex-end'
     },
     typeDayText: {
-      fontSize: 8,
+      fontSize: fontSizeTypeDayText,
       fontWeight: 'bold',
       color: 'red',
       marginBottom: 3,
