@@ -1,11 +1,12 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet, Dimensions, Platform} from 'react-native';
 import * as defaultStyle from '../../../style';
 
 const STYLESHEET_ID = 'stylesheet.day.basic';
 const { width } = Dimensions.get("window");
 const calendarWidth = width - 18;
 const dayWidth = (calendarWidth - 5 * 2) / 7;
-const fontSizeTypeDayText = dayWidth > 48 ? 8 : 6;
+const iOS = Platform.OS;
+const fontSizeTypeDayText = dayWidth > 48 ? (iOS ? 7 : 8) : (iOS ? 5 : 6);
 
 export default function styleConstructor(theme={}) {
   const appStyle = {...defaultStyle, ...theme};
